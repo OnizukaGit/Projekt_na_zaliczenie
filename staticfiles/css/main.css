@@ -1,0 +1,222 @@
+/* --- Podstawowe Resetowanie i Layout --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f9;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.nav-container, .ranking-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    padding-bottom: 50px;
+}
+
+/* --- Nawigacja (Flexbox) --- */
+.main-nav {
+    background-color: #2c3e50; /* Ciemne tło */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex; /* Flexbox dla menu */
+}
+
+.nav-menu li {
+    margin-left: 25px;
+}
+
+.nav-link {
+    color: #ecf0f1;
+    padding: 8px 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.current {
+    color: #3498db;
+}
+
+/* Styl przycisku logowania */
+.nav-button {
+    background-color: #e74c3c;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.nav-button:hover {
+    background-color: #c0392b;
+}
+
+/* Ukrycie przycisku hamburgera na desktopie */
+.nav-toggle {
+    display: none;
+}
+
+/* --- Sekcje Główne i Przyciski --- */
+.hero-section {
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #2ecc71;
+    color: white;
+    margin-top: 20px;
+}
+.btn-primary:hover {
+    background-color: #27ae60;
+}
+.btn-challenge {
+    background-color: #f1c40f;
+    color: #333;
+    padding: 5px 10px;
+}
+
+/* --- Tabela Rankingu (CSS Grid dla układu responsywnego) --- */
+.ranking-section {
+    padding-top: 20px;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-top: 20px;
+}
+
+.ranking-table th, .ranking-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.ranking-table thead th {
+    background-color: #34495e;
+    color: white;
+}
+
+.ranking-table tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.ranking-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.score {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* --- Responsywność (Media Queries) --- */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+        display: block; /* Pokaż przycisk hamburgera */
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        /* Styl dla ikony */
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+
+    .nav-menu {
+        display: none; /* Ukryj menu domyślnie */
+        flex-direction: column;
+        width: 100%;
+        background-color: #34495e;
+        position: absolute;
+        top: 65px; /* Poniżej nagłówka */
+        left: 0;
+        z-index: 1000;
+        padding: 10px 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-menu.active {
+        display: flex; /* Pokaż menu po kliknięciu JS */
+    }
+
+    .nav-menu li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 15px;
+    }
+
+    /* Responsywność tabeli (tylko w bardzo małych ekranach) */
+    .ranking-table-container {
+        overflow-x: auto; /* Włącz poziomy scroll */
+    }
+}
