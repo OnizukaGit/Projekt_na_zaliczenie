@@ -1,1 +1,8 @@
-rejestr
+<form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <input type="submit" value="Zarejestruj"></input>
+    
+</form>

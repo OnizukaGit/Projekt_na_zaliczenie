@@ -13,7 +13,13 @@
     <img src="{% static 'images/logo-pong.jpg' %}" alt="logo" width="150" height="100">
 </a>
 
-<button type="{% url 'login' %}">Zaloguj się</button>
-<button type="{% url 'register' %}">Zarejestruj się</a>
+{% if user.is_authenticated %}
+    Witaj {{ user.username }}
+    <a href="{% url 'logout' %}" >Wyloguj się</a>
+    <a href="{% url 'game' %}" >GRAJ</a>
+{% else %}
+    <a href="{% url 'login' %}" >Zaloguj</a>
+    <a href="{% url 'register' %}">Zarejestruj się</a>
+{% endif %}
 </body>
 </html>

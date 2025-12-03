@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PONG</title>
+</head>
+<body>
+<a href="{% url 'home' %}">
+    <img src="{% static 'images/logo-pong.jpg' %}" alt="logo" width="150" height="100">
+</a>
+
+
+{% if user.is_authenticated %}
+    Witaj {{ user.username }}
+    <a href="{% url 'logout' %}" >Wyloguj się</a>
+{% endif %}
+
+
+</body>
+</html>
