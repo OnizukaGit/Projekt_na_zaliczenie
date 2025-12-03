@@ -1,20 +1,27 @@
+// Oczekiwanie na pełne załadowanie strony
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Pobierz elementy
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
 
-    // 2. Dodaj nasłuchiwanie kliknięcia, jeśli elementy istnieją
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            // Przełącza klasę 'active', która jest używana w CSS do pokazania/ukrycia menu
-            navMenu.classList.toggle('active');
+    // --- 1. Potwierdzenie Wylogowania (dla poprawy user experience) ---
+    // Pobranie przycisku wylogowania
+    const logoutForm = document.querySelector('form[action$="/logout/"]');
 
-            // Opcjonalnie: Zmienia przycisk toggle na 'X' lub inny stan
-            navToggle.classList.toggle('is-open');
+    if (logoutForm) {
+        logoutForm.addEventListener('submit', function(event) {
+            // Wyświetlenie okna dialogowego z pytaniem
+            if (!confirm('Czy na pewno chcesz się wylogować?')) {
+                // Jeśli użytkownik naciśnie "Anuluj", zatrzymaj wysłanie formularza
+                event.preventDefault();
+            }
         });
     }
 
-    // 3. TUTAJ MOŻESZ DODAĆ SWOJE SKRYPTY
-    // Np. prostą walidację formularza lub efekty wizualne.
+    // --- 2. Prosta Animacja (przykład na stronie gry) ---
+    const mainHeader = document.querySelector('.content-container h1');
 
+    if (mainHeader) {
+        // Dodanie klasy po krótkiej chwili, co można wykorzystać w CSS do animacji
+        setTimeout(() => {
+            mainHeader.classList.add('fade-in-active');
+        }, 100);
+    }
 });

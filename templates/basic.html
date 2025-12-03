@@ -3,23 +3,44 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PONG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PONG{% endblock title %}</title>
+    <link rel="stylesheet" href="{% staticfiles 'css/main.css' %}">
 </head>
 <body>
-<a href="{% url 'home' %}">
-    <img src="{% static 'images/logo-pong.jpg' %}" alt="logo" width="150" height="100">
-</a>
 
-{% if user.is_authenticated %}
-    Witaj {{ user.username }}
-    <a href="{% url 'logout' %}" >Wyloguj się</a>
-    <a href="{% url 'game' %}" >GRAJ</a>
-{% else %}
-    <a href="{% url 'login' %}" >Zaloguj</a>
-    <a href="{% url 'register' %}">Zarejestruj się</a>
-{% endif %}
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% staticfiles 'images/logo-pong.jpg' %}" alt="logo" width="60" height="40">
+            </a>
+        </div>
+
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+                <span>Witaj {{ user.username }}</span>
+                <a href="{% url 'game' %}" class="btn btn-primary">GRAJ</a>
+
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary">Wyloguj się</button>
+                </form>
+
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-secondary">Zaloguj</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Zarejestruj się</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<main class="content-container">
+    {% block content %}
+        <h1>Witaj na stronie PONG</h1>
+    {% endblock content %}
+</main>
+
+<script src="{% staticfiles 'js/custom.js' %}"></script>
 </body>
 </html>

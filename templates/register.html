@@ -1,8 +1,12 @@
-<form method="post" action="{% url 'register' %}">
-    {% csrf_token %}
-    
-    {{ form.as_p }}
-    
-    <input type="submit" value="Zarejestruj"></input>
-    
-</form>
+{% extends "basic.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>Zarejestruj się</h2>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+    </form>
+</div>{% endblock content %}

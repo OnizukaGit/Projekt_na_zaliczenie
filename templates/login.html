@@ -1,11 +1,14 @@
-<form method="post" action="{% url 'login' %}">
-    
-    {% csrf_token %}
-    
-    <h2>Zaloguj się</h2>
-    
-    {{ form.as_p }} 
+{% extends "basic.html" %}
 
-    <button type="submit" >Zaloguj</button>
-    
-</form>
+{% block content %}
+<div class="form-container">
+    <h2>Zaloguj się</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        {{ form.as_p }} 
+
+        <button type="submit" class="btn btn-primary">Zaloguj</button>
+    </form>
+</div>
+{% endblock content %}

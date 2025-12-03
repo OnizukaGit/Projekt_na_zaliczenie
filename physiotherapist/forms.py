@@ -1,3 +1,5 @@
+from cProfile import label
+
 from django import forms
 from django.core.validators import ValidationError
 from django.contrib.auth import authenticate, get_user_model
@@ -32,6 +34,13 @@ class Registerform(forms.ModelForm):
             'username',
             'email',
         )
+        labels = {
+            'first_name': 'Imię',
+            'last_name': 'Nazwisko',
+            'username': 'Login',
+            'email': 'Email',
+
+        }
         help_texts = {
             'username': 'Tym będziesz się logował',
         }
