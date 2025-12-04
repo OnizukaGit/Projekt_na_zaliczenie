@@ -1,30 +1,15 @@
-/* --- 1. RESETOWANIE I ZMIENNE --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    /* Paleta kolorów */
-    --color-primary: #1e74f4; /* Akcent/Główny */
-    --color-secondary: #5a6268; /* Drugorzędny */
-    --color-background: #f8f9fa; /* Tło */
-    --color-text: #343a40; /* Tekst */
-    --color-light: white;
-}
-
 body {
+    /* Używamy bezpośrednich kodów kolorów zamiast zmiennych */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
+    background-color: #f8f9fa; /* Jasne tło */
+    color: #343a40; /* Ciemny tekst */
     line-height: 1.6;
     padding-top: 80px; /* Odstęp na stały nagłówek */
 }
 
-/* --- 2. NAGŁÓWEK I NAWIGACJA --- */
+/* --- 2. NAGŁÓWEK I NAWIGACJA (Standardowy stały nagłówek) --- */
 header {
-    background-color: var(--color-light);
+    background-color: white; /* Białe tło */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -35,7 +20,7 @@ header {
 
 .nav-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Wyśrodkowanie bloku - klasyczna technika */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -45,10 +30,11 @@ header {
 .nav-links span {
     margin-right: 15px;
     font-weight: 600;
-    color: var(--color-primary);
+    color: #1e74f4; /* Kolor akcentu */
 }
 
-/* --- 3. STYLIZACJA PRZYCISKÓW --- */
+/* --- 3. STYLIZACJA PRZYCISKÓW (Zwykłe klasy i prosty hover) --- */
+
 .btn {
     display: inline-block;
     padding: 10px 18px;
@@ -56,58 +42,47 @@ header {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: background-color 0.3s; /* Prosta animacja, bez transform */
     border: 1px solid transparent;
     margin-left: 5px;
 }
 
 /* Główny przycisk (np. Rejestracja, GRAJ) */
 .btn-primary {
-    background-color: var(--color-primary);
-    color: white !important;
+    background-color: #1e74f4;
+    color: white; 
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    transform: translateY(-1px);
+    background-color: #0056b3; /* Po prostu zmiana koloru na ciemniejszy */
 }
 
-/* Drugorzędny przycisk (np. Zaloguj, Wyloguj) */
+/* Drugorzędny przycisk (np. Zaloguj) */
 .btn-secondary {
-    background-color: var(--color-secondary);
-    color: white !important;
+    background-color: #5a6268;
+    color: white;
 }
 
 .btn-secondary:hover {
     background-color: #495057;
-    transform: translateY(-1px);
 }
 
-/* Stylizacja przycisku wylogowania (w formularzu) */
-.nav-links form button {
-    /* Używamy styli btn, ale nadpisujemy, aby wyglądał jak link/przycisk */
-    background: none;
-    border: none;
-    color: var(--color-secondary);
-    text-decoration: underline;
-    font-size: 1em;
+/* Stylizacja dla formularza wylogowania w nawigacji */
+.nav-links form {
+    margin: 0;
     padding: 0;
-    margin-left: 10px;
-    font-weight: normal;
+    display: inline; 
 }
 
-.nav-links form button:hover {
-    color: var(--color-primary);
-    text-decoration: none;
-    transform: none;
-}
+/* Usuwamy nadmierne resetowanie, polegając na klasach .btn i .btn-primary */
 
-/* --- 4. STYLIZACJA FORMULARZY (login.html, register.html) --- */
+
+/* --- 4. STYLIZACJA FORMULARZY (Typowy layout formularza) --- */
 .form-container {
     max-width: 400px;
-    margin: 100px auto 50px; /* Dodatkowe miejsce na górze po nagłówku */
+    margin: 100px auto 50px; 
     padding: 30px;
-    background: var(--color-light);
+    background: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
@@ -115,7 +90,7 @@ header {
 .form-container h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: var(--color-primary);
+    color: #1e74f4;
 }
 
 /* Walidacja i błędy */
@@ -127,7 +102,7 @@ ul.errorlist {
     font-size: 0.9em;
 }
 
-/* Stylowanie pól formularza (dla {{ form.as_p }} ) */
+/* Stylowanie pól formularza (używamy standardowego input) */
 .form-container p {
     margin-bottom: 15px;
 }
@@ -148,7 +123,7 @@ ul.errorlist {
 }
 
 .form-container input:focus {
-    border-color: var(--color-primary);
+    border-color: #1e74f4;
     outline: none;
 }
 

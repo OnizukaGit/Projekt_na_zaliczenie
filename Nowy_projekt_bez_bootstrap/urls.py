@@ -16,13 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from physiotherapist.views import StartPage, Register, Login, Logout, Game
+from django.contrib.auth.views import LogoutView
+from physiotherapist.views import StartPage, Register, Login, Game, SaveScoreAPIView
 
 urlpatterns = [
        path('admin/', admin.site.urls),
        path('', StartPage.as_view(), name='home'),
        path('login/', Login.as_view(), name='login'),
-       path('logout/', Logout.as_view(), name='logout'),
+       path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
        path('register/', Register.as_view(), name='register'),
        path('game/', Game.as_view(), name='game'),
+       path('api/save_score/', SaveScoreAPIView.as_view(), name='api_save_score'),
 ]
