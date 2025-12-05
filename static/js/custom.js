@@ -1,7 +1,6 @@
 // Oczekiwanie na pełne załadowanie strony
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Potwierdzenie Wylogowania (dla poprawy user experience) ---
     // Pobranie przycisku wylogowania
     const logoutForm = document.querySelector('form[action$="/logout/"]');
 
