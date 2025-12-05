@@ -1,0 +1,72 @@
+body {
+    background-color: gray; /* tło główne */
+    padding-top: 80px; /* odstęp od nagłówka */
+}
+
+header {
+    background-color: bisque; /* --- Kolor paska nawigacji --- */
+    box-shadow: 3px 7px 3px rgba(333, 0, 0, 0.4); /* --- Cień pod paskiem --- */
+    position: fixed; /* --- Utrzymuje nagłówek na górze--- */
+    top: 0; /* --- Pozycjonuje nagłówek na samej górze strony --- */
+    left: 0; /* --- Pozycjonuje nagłówek przy lewej krawędzi --- */
+    width: 100%; /* --- Rozciąga pasek do krawędzi --- */
+}
+/* --- Wnętrze paska nawigacji --- */
+.nav-container {
+    padding: 10px 20px; /* --- Wewnętrzny margines kontenera --- */
+    display: flex; /* --- Używa Flexbox do układu elementów --- */
+    justify-content: space-between; /* --- Rozsuwa elementy logo i przyciski na boki --- */
+    align-items: center; /* --- Wyśrodkowuje elementy w pionie --- */
+}
+/* --- Napis zalogowanej osoby  --- */
+.nav-links span {
+    margin-right: 35px; /* --- Odstęp od przycisków --- */
+    font-weight: 800; /* --- Pogrubiona czcionka --- */
+    color: saddlebrown; /* Kolor  */
+}
+
+/* --- Stylizacja przycisków --- */
+.btn {
+    padding: 10px 18px; /* --- Wewnętrzne odstępy w przycisku --- */
+    border-radius: 5px; /* --- Zaokrąglenie przycisków --- */
+    text-decoration: none; /* --- Usuwanie podkreślenia z linków --- */
+    font-weight: bold; /* --- Pogrubiona czcionka w przyciskach --- */
+    cursor: pointer; /* --- Użycie wskaźnika myszy jako kursora  --- */
+    border: 1px solid transparent; /* --- Przezroczysta ramka  --- */
+    margin-left: 5px; /* --- Margines pomiędzy przyciskami --- */
+}
+
+.btn-primary {
+    background-color: rebeccapurple; /* --- Główny kolor tła przycisku --- */
+    color: white; /* --- Kolor tekstu w przycisku --- */
+}
+
+/* --- Stylizacja formularza  --- */
+.form-container {
+    max-width: 700px; /* --- Maksymalna szerokość formularza --- */
+    margin: 100px auto 50px; /* --- Wyśrodkowanie formularza w poziomie i marginesy pionowe --- */
+    padding: 30px; /* --- Wewnętrzny margines kontenera --- */
+    background: white; /* --- Tło formularza --- */
+    border-radius: 10px; /* --- Zaokrąglenie rogów kontenera --- */
+    box-shadow: 0 18px 15px rgba(0, 0, 0, 0.30); /* --- Cień pod formularzem --- */
+    text-align: center; /* --- Wyśrodkowuje napisy --- */
+}
+
+.form-container h2 {
+    margin-bottom: 30px; /* --- Odstęp pod tytułem formularza --- */
+    color: rebeccapurple; /* --- Kolor nagłówka formularza --- */
+}
+
+.form-container label {
+    font-weight: 600; /* --- pogrubiona czcionka etykiet --- */
+}
+
+
+/* --- Wnętrze formularza --- */
+.form-container input {
+    width: 100%; /* --- szerokość pól --- */
+    padding: 12px; /* --- Wewnętrzny margines pola  --- */
+    border: 1px solid rebeccapurple; /* --- ramka pola wejściowego --- */
+    border-radius: 5px; /* --- zaokrąglenie ramek pól --- */
+    font-size: 16px; /* --- Rozmiar czcionki --- */
+}

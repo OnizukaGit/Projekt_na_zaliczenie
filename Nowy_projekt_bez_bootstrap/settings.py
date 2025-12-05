@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'Nowy_projekt_bez_bootstrap.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "physiotherapist_db",
+        "NAME": "baza_do_zaliczenia",
         "USER": "postgres",
-        "PASSWORD": "postgres",
+        "PASSWORD": "ambrozja",
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
@@ -118,10 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-STATIC_URL = '/staticfiles/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 # Default primary key field type

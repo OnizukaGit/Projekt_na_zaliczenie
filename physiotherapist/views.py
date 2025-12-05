@@ -37,15 +37,6 @@ class Login(FormView):
         login(self.request, user)
         return super().form_valid(form)
 
-
-# class Logout(RedirectView):
-#     url = reverse_lazy('home')
-#
-#     def get(self, request, *args, **kwargs):
-#         logout(request)
-#         return super(Logout, self).get(request, *args, **kwargs)
-
-
 class Register(CreateView):
     model = User
     template_name = 'register.html'

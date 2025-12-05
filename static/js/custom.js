@@ -14,14 +14,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // --- 2. Prosta Animacja (przykład na stronie gry) ---
-    const mainHeader = document.querySelector('.content-container h1');
-
-    if (mainHeader) {
-        // Dodanie klasy po krótkiej chwili, co można wykorzystać w CSS do animacji
-        setTimeout(() => {
-            mainHeader.classList.add('fade-in-active');
-        }, 100);
-    }
 });
